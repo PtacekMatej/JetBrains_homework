@@ -17,18 +17,16 @@ class AST_Scope extends AST_Node {
   }
 }
 
-class AST_Assignment(name: String, newValue: Int) extends AST_Node {
+class AST_Assignment(name: String, newValue: AST_ValueNode) extends AST_Node {
   override def eval(variables: ScopeStack): Unit = {
-    variables.setVal(name, newValue)
+    variables.setVal(name, newValue.eval(variables))
   }
 }
 
 class AST_Print(name: String) extends AST_Node {
   override def eval(variables: ScopeStack): Unit = {
     println(
-      variables.getVal(name) match
-        case Some(value) => value
-        case None => "null"
+      variables.getVal(name).getOrElse("null")
     )
   }
 }

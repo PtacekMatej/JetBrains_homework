@@ -1,4 +1,11 @@
 trait Parser {
+  /**
+   * a method used to parse a token stream
+   * @param tokens
+   * the token stream that is to be parsed
+   * @return
+   * the root node of the abstract syntax tree that had been parsed
+   */
   def parse(tokens: TTokenStream): AST_Node
 }
 

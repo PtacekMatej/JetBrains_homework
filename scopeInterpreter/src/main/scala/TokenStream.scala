@@ -2,7 +2,22 @@
 import java.util.Arrays
 
 trait TTokenStream {
+  /**
+   * peek at the first token in the stream
+   * @return
+   * the token that is at the front of the token stream
+   */
   def peek(): Token
+
+  /**
+   * a method used to match a token in the token stream
+   * @param token
+   * the token that should be at the front of the stream
+   * @return
+   * the matched token
+   * @throws Exception
+   * when the parameter does not match the front of the stream
+   */
   def matchToken(token: Token): Token
 }
 

@@ -9,7 +9,7 @@ class ScopeStackTest extends AnyFunSuite {
     assert(stackEmpty.getVal(" ").isEmpty)
   }
   def stackTest(stack: TScopeStack, depth: Int): Unit = {
-    if(depth < 10) {
+    if(depth < 500) {
       val newStack = new ScopeStack(stack)
       newStack.setVal("abc", Some(depth))
       assert(newStack.getVal("abc").contains(depth))
